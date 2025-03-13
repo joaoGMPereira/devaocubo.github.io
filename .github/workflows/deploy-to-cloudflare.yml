@@ -13,6 +13,7 @@ jobs:
 
     - name: Build Swift package
       run: swift build -c release --static-swift-stdlib
+      ls -la .build/release
 
     - name: Run Swift package
       run: .build/release/DevAoCubo
@@ -29,6 +30,7 @@ jobs:
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        
         command: pages deploy ./.build/release/DevAoCubo --project-name=devaocubo
         # Optional: Enable this if you want to have GitHub Deployments triggered
         gitHubToken: ${{ secrets.GITHUB_TOKEN }}
