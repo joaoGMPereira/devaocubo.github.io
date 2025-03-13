@@ -31,7 +31,7 @@ jobs:
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: npx wrangler pages deploy ${{ github.workspace }}/.build/release/DevAoCubo --project-name=devaocubo
-        command: pages deploy ./.build/release/DevAoCubo --project-name=devaocubo
+        directory: ./Build/
+        run: npx wrangler pages deploy --project-name=devaocubo
         # Optional: Enable this if you want to have GitHub Deployments triggered
         gitHubToken: ${{ secrets.GITHUB_TOKEN }}
