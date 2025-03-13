@@ -12,13 +12,12 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Build Swift package
-      run: swift build -c release --static-swift-stdlib
-      ls -la .build/release
-
-    - name: Run Swift package
       run: |
         swift build -c release --static-swift-stdlib
         ls -la .build/release
+
+    - name: Run Swift package
+      run: .build/release/DevAoCubo
       
     - name: Install npm
       run: |
