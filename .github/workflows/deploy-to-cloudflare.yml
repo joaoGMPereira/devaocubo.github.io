@@ -19,7 +19,7 @@ jobs:
       run: swift build -c release --static-swift-stdlib
 
     - name: Run Swift package
-      run: .build/release/JCalderitaWebSite
+      run: .build/release/DevAoCubo
 
     - name: Install npm
       run: |
