@@ -1,9 +1,6 @@
 name: Deploy Swift Package to Cloudflare Pages
 
-on:
-  push:
-    tags:
-      - 'v*'
+on: [push]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
