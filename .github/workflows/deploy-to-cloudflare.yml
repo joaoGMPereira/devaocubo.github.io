@@ -16,6 +16,11 @@ jobs:
 
     - name: Run Swift package
       run: .build/release/DevAoCubo
+      
+    - name: Install npm
+      run: |
+        apt-get update
+        apt-get install -y npm
 
     - name: Publish to Cloudflare Pages
       uses: actions/checkout@v4
