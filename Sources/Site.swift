@@ -15,13 +15,20 @@ struct IgniteWebsite {
 }
 
 struct ExampleSite: Site {    
-    var name = "Hello World"
-    var titleSuffix = " – My Awesome Site"
-    var url = URL(static: "https://www.example.com")
+    var name = "Dev ao Cubo"
+    var titleSuffix = " – Jobs"
+    var url = URL(static: "https://www.devaocubo.com")
     var builtInIconsEnabled = true
+    var feedConfiguration = FeedConfiguration(mode: .full, contentCount: 20, image: .init(url: "https://devaocubo.com/images/favicon.png", width: 32, height: 40))
 
-    var author = "John Appleseed"
+    var author = "João Gabriel de Medeiros Pereira"
 
-    var homePage = Home()
+    var homePage = Ptbr()
+    var theme = MyTheme()
     var layout = MainLayout()
+    
+    var staticPages: [any StaticPage] = [
+        En(),
+        Ptbr()
+    ]
 }
