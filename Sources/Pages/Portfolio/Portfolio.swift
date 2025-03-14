@@ -1,10 +1,7 @@
 import Foundation
 import Ignite
 
-import Foundation
-import Ignite
-
-struct Portfolio: HTML {
+struct PortfolioHTML: HTML {
     @Environment(\.decode) var decode
     
     let language: PortfolioLanguage
@@ -12,10 +9,10 @@ struct Portfolio: HTML {
     var portfolio: Profile? {
         decode.callAsFunction("\(language.rawValue).json", as: Profile.self)
     }
-    
+   
     var body: some HTML {
         if let portfolio {
-            NavBarView(name: portfolio.name, language: language)
+            NavBarView(name: portfolio.name, selectedPage: .init(type: .portfolio, language: language), options: ProfileOption.allCases)
             IntroductionView(role: portfolio.role, introduction: portfolio.introduction)
             ExperienceView(.job, for: language, experiences: portfolio.jobs)
             ExperienceView(.education, for: language, experiences: portfolio.education)
@@ -30,20 +27,18 @@ struct Portfolio: HTML {
     }
 }
 
-
-struct En: StaticPage {
+struct PortfolioEn: StaticPage {
     let title: String = "João Gabriel"
     
     var body: some HTML {
-        Portfolio(for: .english)
+        PortfolioHTML(for: .english)
     }
 }
 
-
-struct Ptbr: StaticPage {
+struct Portfolio: StaticPage {
     let title: String = "João Gabriel"
     
     var body: some HTML {
-        Portfolio()
+        PortfolioHTML()
     }
 }

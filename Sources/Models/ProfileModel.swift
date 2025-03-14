@@ -4,7 +4,7 @@ struct Profile: Decodable {
     let name, role, introduction, footer: String
     let languages: [Language]
     let jobs, education: [Experience]
-    let projects: [Project]
+    let projects: [PersonalProject]
     let links: [SocialLink]
 }
 
@@ -13,7 +13,7 @@ struct Experience: Decodable {
     let responsabilities, tecnologies: [String]
 }
 
-struct Project: Decodable {
+struct PersonalProject: Decodable {
     let name, description: String
     let links: [SocialLink]
 }

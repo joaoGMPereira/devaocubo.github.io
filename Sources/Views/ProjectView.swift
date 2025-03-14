@@ -4,9 +4,9 @@ import Ignite
 struct ProjectView: HTML {
     let option: ProfileOption
     let language: PortfolioLanguage
-    let projects: [Project]
+    let projects: [PersonalProject]
     
-    init(_ option: ProfileOption, for language: PortfolioLanguage, projects: [Project]) {
+    init(_ option: ProfileOption, for language: PortfolioLanguage, projects: [PersonalProject]) {
         self.option = option
         self.language = language
         self.projects = projects

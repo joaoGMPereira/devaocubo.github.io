@@ -1,18 +1,14 @@
 import Foundation
+import Ignite
 
-enum ProfileOption: CaseIterable, CustomStringConvertible {
+enum ProfileOption: String, CaseIterable, CustomStringConvertible, OptionProtocol {
     case job
     case education
     case project
     case contact
     
     var idName: String {
-        switch self {
-            case .job: "jobs"
-            case .education: "education"
-            case .project: "project"
-            case .contact: "contact"
-        }
+        "#\(rawValue)"
     }
     
     var icon: String {
@@ -28,7 +24,7 @@ enum ProfileOption: CaseIterable, CustomStringConvertible {
         description(for: .english)
     }
     
-    func description(for language: PortfolioLanguage) -> String {
+    func description(for language: LanguageType) -> String {
         switch (self, language) {
             case (.job, .english): "Jobs"
             case (.job, .portuguese): "Trabalhos"
@@ -46,7 +42,7 @@ enum ProfileOption: CaseIterable, CustomStringConvertible {
     ///   - language: The language in which the description is desired.
     ///   - uppercased: A boolean that determines whether the raw value should be uppercased. Default is `false`.
     /// - Returns: A string with the icon and the corresponding description, optionally in uppercase.
-    func iconWithDescription(for language: PortfolioLanguage, uppercased: Bool = false) -> String {
+    func iconWithDescription(for language: LanguageType, uppercased: Bool = false) -> String {
         let description = self.description(for: language)
         return "\(icon) \(uppercased ? description.uppercased() : description)"
     }

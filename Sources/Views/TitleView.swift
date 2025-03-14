@@ -11,7 +11,7 @@ struct TitleView: HTML {
     }
     
     var body: some HTML {
-        Text(option: option, for: language, uppercased: true)
+        Text(option: option, for: language.type, uppercased: true)
             .font(.title2)
             .style(.color, .titleColor)
             .margin(.vertical)

@@ -1,0 +1,40 @@
+import Foundation
+import Ignite
+
+struct ProjectHTML: HTML {
+    @Environment(\.decode) var decode
+    
+    let language: ProjectLanguage
+    
+    var portfolio: Profile? {
+        decode.callAsFunction("\(language.rawValue).json", as: Profile.self)
+    }
+   
+    var body: some HTML {
+        if let portfolio {
+            NavBarView(name: portfolio.name, selectedPage: .init(type: .project, language: language), options: ProjectOption.allCases)
+        }
+    }
+    
+    init(for language: ProjectLanguage = .portuguese) {
+        self.language = language
+    }
+}
+
+
+struct ProjectEn: StaticPage {
+    let title: String = "João Gabriel"
+    
+    var body: some HTML {
+        ProjectHTML(for: .english)
+    }
+}
+
+
+struct Project: StaticPage {
+    let title: String = "João Gabriel"
+    
+    var body: some HTML {
+        return ProjectHTML()
+    }
+}

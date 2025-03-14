@@ -2,6 +2,7 @@ name: Deploy Swift Package to Cloudflare Pages
 
 on:
   push:
+  
     tags:
       - 'v*'
   workflow_dispatch:
