@@ -19,6 +19,7 @@ struct ExampleSite: Site {
     var titleSuffix = " – Jobs"
     var url = URL(static: "https://www.project.com")
     var builtInIconsEnabled = true
+    var favicon = URL(string: "/images/favicon.png")
     var feedConfiguration = FeedConfiguration(mode: .full, contentCount: 20, image: .init(url: "https://devaocubo.me/images/favicon.png", width: 32, height: 40))
 
     var author = "João Gabriel de Medeiros Pereira"
