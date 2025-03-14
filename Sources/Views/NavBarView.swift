@@ -11,9 +11,12 @@ struct NavBarView: HTML {
         self.selectedPage = selectedPage
         self.options = options
     }
+    var isURL: Bool {
+        name.contains("/")
+    }
     
     var body: some HTML {
-        NavigationBar(logo: logo) {
+        NavigationBar(logo: isURL ? logo : title) {
             for option in options {
                 Link(target: option.idName) {
                     Text(option: option, for: selectedPage.language.type)
@@ -39,11 +42,16 @@ struct NavBarView: HTML {
         .position(.fixedTop)
     }
     
-    private var logo: some InlineElement {
+    private var title: some InlineElement {
         Text(name)
             .font(.title4)
             .fontWeight(.bold)
             .style(.color, .primary)
             .margin(.none)
+    }
+    private var logo: some InlineElement {
+        Image(name, description: "Logo")
+            .resizable()
+            .frame(width: .percent(30%))
     }
 }
