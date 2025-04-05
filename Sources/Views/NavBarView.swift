@@ -35,11 +35,7 @@ struct NavBarView: HTML {
     }
     
     private var title: some InlineElement {
-        Text(name)
-            .font(.title4)
-            .fontWeight(.bold)
-            .style(.color, .primary)
-            .margin(.none)
+        name
     }
     private var logo: some InlineElement {
         Image(name, description: "Logo")

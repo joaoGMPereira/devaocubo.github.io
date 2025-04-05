@@ -23,7 +23,7 @@ struct VideosView: HTML {
                         }
                     }
                 }
-                .columns(2)
+                .columns(1)
             }
 
             Item("Ao Vivo") {
@@ -35,7 +35,7 @@ struct VideosView: HTML {
                         }
                     }
                 }
-                .columns(2)
+                .columns(1)
             }
         }
         .openMode(.individual)

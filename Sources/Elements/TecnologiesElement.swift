@@ -8,9 +8,9 @@ func Tecnologies(_ tecnologies: [String]) -> some HTML {
             Badge($0)
                 .role(.close)
                 .style(.backgroundColor, .accent)
-                .style(.color, .inverse)
-                .padding(.medium)
+                .style(.color, Palette.inverse)
                 .margin(.small)
+                
         }
     }
 }

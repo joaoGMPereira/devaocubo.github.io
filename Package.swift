@@ -7,7 +7,7 @@ let package = Package(
     name: "DevAoCubo",
     platforms: [.macOS(.v13)],
     dependencies: [
-        .package(url: "https://github.com/twostraws/Ignite.git", revision: "3b067ec")
+        .package(url: "https://github.com/twostraws/Ignite.git", branch: "main")
     ],
     targets: [
         .executableTarget(
