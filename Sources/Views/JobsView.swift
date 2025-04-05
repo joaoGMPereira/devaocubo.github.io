@@ -42,6 +42,8 @@ struct JobsView: HTML {
                                     .style(.color, .primary)
                                     .margin(.vertical, -10)
                             }
+                            .role(.dark)
+                            .cardStyle(.solid)
                         }
                     }
                     .applyFirstStyle()
