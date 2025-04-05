@@ -1,7 +1,7 @@
 {
   "name": "João Gabriel de Medeiros Pereira",
   "role": "Desenvolvedor iOS",
-  "introduction": "Sou um desenvolvedor de software com mais de 10 anos de experiência. Especializado em desenvolvimento iOS com Swift e outras tecnologias relacionadas. Tenho formação em Análise e Desenvolvimento de Sistemas e experiência em empresas do setor financeiro e fintechs, criando soluções reutilizáveis e colaborativas. Tenho prazer em ajudar outros desenvolvedores, promover discussões técnicas e buscar soluções que facilitem o desenvolvimento.",
+  "introduction": "Sou um desenvolvedor de software com mais de 10 anos de experiência, especializado em desenvolvimento iOS com Swift e tecnologias relacionadas. Possuo formação em Análise e Desenvolvimento de Sistemas e trabalhei em empresas financeiras e fintechs criando soluções reutilizáveis e colaborativas. Gosto de ajudar outros desenvolvedores, liderar discussões técnicas e encontrar maneiras de facilitar o desenvolvimento.",
   "languages": [
     {
       "language": "Português",
@@ -15,187 +15,223 @@
   "jobs": [
     {
       "title": "PicPay",
-      "role": "Desenvolvedor iOS Staff",
       "place": "São Paulo, Brasil",
-      "interval": "Outubro 2023 – atualmente",
-      "responsabilities": [
-        "Responsável pela construção do novo Design System (DS) desde o início, da concepção à produção.",
-        "Criação de estrutura com inversão de dependência para uso seguro e controlado dos recursos do DS.",
-        "Desenvolvimento de guardrails em Go, TypeScript e Ruby para orientar o uso correto do DS.",
-        "Criação de scripts e dashboards para monitoramento da adoção e uso do novo DS entre as equipes."
-      ],
-      "tecnologies": [
-        "Swift",
-        "Go",
-        "TypeScript",
-        "Ruby",
-        "SDUI",
-        "Bitrise",
-        "XcodeGen"
+      "positions": [
+        {
+          "role": "Desenvolvedor iOS Staff – Time de Design System",
+          "interval": "Outubro 2023 – Presente",
+          "responsabilities": [
+            "Responsável por construir o novo Design System (DS) do zero, da concepção à produção.",
+            "Criou uma estrutura de inversão de dependência para garantir o uso seguro e controlado dos recursos do DS.",
+            "Desenvolveu proteções usando Go, TypeScript e Ruby para orientar a implementação adequada do DS.",
+            "Construiu scripts e painéis para monitorar a adoção e uso do DS entre as equipes."
+          ],
+          "technologies": [
+            "Swift",
+            "Go",
+            "TypeScript",
+            "Ruby",
+            "SDUI",
+            "Bitrise",
+            "XcodeGen"
+          ]
+        },
+        {
+          "role": "Desenvolvedor iOS Staff – Unidade de Negócios de Empréstimos",
+          "interval": "Janeiro 2022 – Setembro 2023",
+          "responsabilities": [
+            "Suporte multifuncional na BU de Empréstimos, auxiliando múltiplos squads com arquitetura, documentação e programação em par.",
+            "Desenvolveu um framework DSL usando ResultBuilder para padronizar ações, análises e feedbacks.",
+            "Criou o Feedback Framework para mensagens dinâmicas ao usuário sem necessidade de atualizações do aplicativo.",
+            "Desenvolveu o SampleKit, um módulo de exemplo para acelerar testes e reutilizar lógicas comuns.",
+            "Participou do programa Buddy, mentorando e apoiando desenvolvedores iOS."
+          ],
+          "technologies": [
+            "Swift",
+            "Go",
+            "SDUI"
+          ]
+        }
       ]
     },
     {
-      "title": "PicPay",
-      "role": "Desenvolvedor iOS Staff",
-      "place": "São Paulo, Brasil",
-      "interval": "Janeiro 2022 – Setembro 2023",
-      "responsabilities": [
-        "Atuação transversal na BU de Empréstimos, apoiando diversas squads com arquitetura, documentação e pareamentos.",
-        "Desenvolvimento de framework DSL com ResultBuilder para padronizar ações, analytics e feedbacks.",
-        "Criação do Feedback Framework para retorno dinâmico sem necessidade de nova versão do app.",
-        "Desenvolvimento do SampleKit, módulo de exemplos para acelerar testes e reaproveitar implementações.",
-        "Participação no programa Buddy, mentorando e apoiando devs iOS."
-      ],
-      "tecnologies": [
-        "Swift",
-        "Go",
-        "SDUI"
-      ]
-    },
-    {
-      "title": "Greenlight Bank (Freelance)",
-      "role": "Desenvolvedor iOS",
+      "title": "Projetos Freelance",
       "place": "Remoto",
-      "interval": "Setembro 2023 – Agosto 2024",
-      "responsabilities": [
-        "Atuação na modernização e manutenção do recurso de customização de cartões."
-      ],
-      "tecnologies": [
-        "Swift"
-      ]
-    },
-    {
-      "title": "VidaaS (Freelance)",
-      "role": "Desenvolvedor iOS",
-      "place": "Remoto",
-      "interval": "Maio 2021 – Agosto 2024",
-      "responsabilities": [
-        "Criação de funcionalidades como emissão e importação de certificados digitais.",
-        "Implementação de In-App Purchase para direitos de uso de certificados.",
-        "Criação de scripts e templates para acelerar o desenvolvimento de novas funcionalidades."
-      ],
-      "tecnologies": [
-        "Swift",
-        "InAppPurchase"
+      "positions": [
+        {
+          "role": "Desenvolvedor iOS – Greenlight Bank",
+          "interval": "Setembro 2023 – Agosto 2024",
+          "responsabilities": [
+            "Trabalhou na modernização e manutenção do recurso de personalização de cartões."
+          ],
+          "technologies": [
+            "Swift"
+          ]
+        },
+        {
+          "role": "Desenvolvedor iOS – VidaaS",
+          "interval": "Maio 2021 – Agosto 2024",
+          "responsabilities": [
+            "Implementou recursos para emissão e importação de certificados digitais.",
+            "Integrou Compras In-App para direitos de uso de certificados.",
+            "Criou scripts e templates para agilizar o desenvolvimento de novos recursos."
+          ],
+          "technologies": [
+            "Swift",
+            "InAppPurchase"
+          ]
+        }
       ]
     },
     {
       "title": "Cornershop by Uber",
-      "role": "Desenvolvedor iOS Sênior",
       "place": "Remoto",
-      "interval": "2021 – 2022",
-      "responsabilities": [
-        "Integração de notificações push.",
-        "Desenvolvimento do fluxo de Timeline (chat pós-venda).",
-        "Refatoração da Timeline de Objective-C para Swift com nova arquitetura MVVM.",
-        "Migração de telas legadas para Swift."
-      ],
-      "tecnologies": [
-        "Swift",
-        "Objective-C",
-        "Tuist",
-        "CircleCI"
+      "positions": [
+        {
+          "role": "Desenvolvedor iOS Sênior",
+          "interval": "2021 – 2022",
+          "responsabilities": [
+            "Integrou notificações push.",
+            "Desenvolveu recursos de Timeline (fluxo de chat pós-venda).",
+            "Refatorou Timeline de Objective-C para Swift usando arquitetura MVVM.",
+            "Migrou telas legadas de Objective-C para Swift."
+          ],
+          "technologies": [
+            "Swift",
+            "Objective-C",
+            "Tuist",
+            "CircleCI"
+          ]
+        }
       ]
     },
     {
-      "title": "Vesti (Freelance)",
-      "role": "Desenvolvedor Flutter",
+      "title": "Vesti",
       "place": "Remoto",
-      "interval": "2021 – 2022",
-      "responsabilities": [
-        "Desenvolvimento de dois apps de venda de roupas (atacado e varejo).",
-        "Uso da arquitetura MVVM.",
-        "Integração com funcionalidades nativas de iOS e Android."
-      ],
-      "tecnologies": [
-        "Flutter",
-        "Dart",
-        "Swift",
-        "Android",
-        "Objective-C"
+      "positions": [
+        {
+          "role": "Desenvolvedor Flutter (Freelance)",
+          "interval": "2021 – 2022",
+          "responsabilities": [
+            "Desenvolveu dois aplicativos de vendas de roupas (atacado e varejo).",
+            "Utilizou arquitetura MVVM.",
+            "Integrou funcionalidades nativas de iOS e Android."
+          ],
+          "technologies": [
+            "Flutter",
+            "Dart",
+            "Swift",
+            "Android",
+            "Objective-C"
+          ]
+        }
       ]
     },
     {
       "title": "XP Inc.",
-      "role": "Desenvolvedor iOS Sênior",
       "place": "São Paulo, Brasil",
-      "interval": "2020 – 2021",
-      "responsabilities": [
-        "Desenvolvimento da tela de Investimentos.",
-        "Criação do Banner Framework para campanhas de marketing.",
-        "Integração de módulos no app principal.",
-        "Avaliação de novos produtos e garantia de qualidade do código."
-      ],
-      "tecnologies": [
-        "Swift",
-        "C#",
-        "Azure DevOps",
-        "XcodeGen"
+      "positions": [
+        {
+          "role": "Desenvolvedor iOS Sênior",
+          "interval": "2020 – 2021",
+          "responsabilities": [
+            "Desenvolveu a tela de Investimentos com informações detalhadas por ativo.",
+            "Criou um Framework de Banner para campanhas de marketing.",
+            "Integrou múltiplos módulos no aplicativo principal.",
+            "Avaliou o desenvolvimento de novos produtos e monitorou a qualidade do código."
+          ],
+          "technologies": [
+            "Swift",
+            "C#",
+            "Azure DevOps",
+            "XcodeGen"
+          ]
+        }
       ]
     },
     {
       "title": "Itaú",
-      "role": "Desenvolvedor iOS Sênior",
       "place": "São Paulo, Brasil",
-      "interval": "2019 – 2020",
-      "responsabilities": [
-        "Manutenção e estabilidade dos apps Itaú PF, Itaucard, Itaú Empresas e ITI."
-      ],
-      "tecnologies": [
-        "Swift"
+      "positions": [
+        {
+          "role": "Desenvolvedor iOS Sênior",
+          "interval": "2019 – 2020",
+          "responsabilities": [
+            "Manteve e garantiu a estabilidade de aplicativos como Itaú PF, Itaucard, Itaú Empresas e ITI."
+          ],
+          "technologies": [
+            "Swift"
+          ]
+        }
       ]
     },
     {
       "title": "Santander",
-      "role": "Desenvolvedor iOS Sênior",
       "place": "São Paulo, Brasil",
-      "interval": "2017 – 2019",
-      "responsabilities": [
-        "Participação em projeto global (Santander Espanha).",
-        "Criação do componente Apple Watch.",
-        "Criação de framework de segurança.",
-        "Avaliação de novos produtos e garantia de qualidade de código."
-      ],
-      "tecnologies": [
-        "Swift",
-        "Objective-C"
+      "positions": [
+        {
+          "role": "Desenvolvedor iOS Sênior",
+          "interval": "2017 – 2019",
+          "responsabilities": [
+            "Trabalhou em projeto global com o Santander Espanha.",
+            "Desenvolveu componentes para Apple Watch.",
+            "Criou um framework de segurança.",
+            "Avaliou novos produtos e monitorou a qualidade do desenvolvimento."
+          ],
+          "technologies": [
+            "Swift",
+            "Objective-C"
+          ]
+        }
       ]
     },
     {
       "title": "Concrete Solutions",
-      "role": "Desenvolvedor iOS Pleno",
       "place": "São Paulo, Brasil",
-      "interval": "2016 – 2017",
-      "responsabilities": [
-        "Atuação em novos produtos do Itaú.",
-        "Garantia de qualidade de código."
-      ],
-      "tecnologies": [
-        "Swift"
+      "positions": [
+        {
+          "role": "Desenvolvedor iOS Pleno",
+          "interval": "2016 – 2017",
+          "responsabilities": [
+            "Trabalhou em novos produtos para o Banco Itaú.",
+            "Garantiu a qualidade do código."
+          ],
+          "technologies": [
+            "Swift"
+          ]
+        }
       ]
     },
     {
       "title": "Resource IT Solutions",
-      "role": "Desenvolvedor iOS Júnior",
       "place": "São Paulo, Brasil",
-      "interval": "2015 – 2016",
-      "responsabilities": [
-        "Desenvolvimento e manutenção do app Santander."
-      ],
-      "tecnologies": [
-        "Objective-C"
+      "positions": [
+        {
+          "role": "Desenvolvedor iOS Júnior",
+          "interval": "2015 – 2016",
+          "responsabilities": [
+            "Desenvolveu e manteve o aplicativo do Santander."
+          ],
+          "technologies": [
+            "Objective-C"
+          ]
+        }
       ]
     },
     {
       "title": "Iterative",
-      "role": "Desenvolvedor iOS Júnior",
       "place": "São Paulo, Brasil",
-      "interval": "2014 – 2015",
-      "responsabilities": [
-        "Desenvolvimento de diversos apps com Objective-C."
-      ],
-      "tecnologies": [
-        "Objective-C"
+      "positions": [
+        {
+          "role": "Desenvolvedor iOS Júnior",
+          "interval": "2014 – 2015",
+          "responsabilities": [
+            "Desenvolveu múltiplos aplicativos usando Objective-C."
+          ],
+          "technologies": [
+            "Objective-C"
+          ]
+        }
       ]
     }
   ],
@@ -206,9 +242,9 @@
       "place": "São Paulo, Brasil",
       "interval": "2013 – 2017",
       "responsabilities": [
-        "Curso Tecnólogo com foco em programação e arquitetura de sistemas."
+        "Formação tecnológica focada em programação e arquitetura de sistemas."
       ],
-      "tecnologies": [
+      "technologies": [
         "Fundamentos de programação"
       ]
     },
@@ -220,7 +256,7 @@
       "responsabilities": [
         "Formação técnica em desenvolvimento iOS"
       ],
-      "tecnologies": [
+      "technologies": [
         "Objective-C"
       ]
     },
@@ -230,9 +266,9 @@
       "place": "São Paulo, Brasil",
       "interval": "2015 – 2016",
       "responsabilities": [
-        "Formação técnica em Android"
+        "Formação técnica em desenvolvimento Android"
       ],
-      "tecnologies": [
+      "technologies": [
         "Java"
       ]
     }
@@ -240,7 +276,7 @@
   "projects": [
     {
       "name": "KettleGym",
-      "description": "Aplicativo para academia onde é possível criar e acompanhar seus treinos e sua evolução.",
+      "description": "Aplicativo de academia onde os usuários podem criar e acompanhar seus treinos e evolução.",
       "links": [
         {
           "icon": "apple",
@@ -253,12 +289,12 @@
   "links": [
     {
       "icon": "linkedin",
-      "description": "Linkedin",
+      "description": "LinkedIn",
       "link": "https://www.linkedin.com/in/jcalderita"
     },
     {
       "icon": "youtube",
-      "description": "Youtube",
+      "description": "YouTube",
       "link": "https://github.com/devaocubo"
     },
     {
@@ -278,7 +314,7 @@
     },
     {
       "icon": "github",
-      "description": "Github",
+      "description": "GitHub",
       "link": "https://github.com/joaoGMPereira"
     },
     {

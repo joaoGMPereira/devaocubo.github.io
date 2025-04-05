@@ -8,7 +8,7 @@ struct IntroductionView: HTML {
     var body: some HTML {
         Text(role)
             .horizontalAlignment(.center)
-            .margin(.top, 80)
+            .margin(.top, 120)
             .font(.title2)
             .style(.color, .titleColor)
         

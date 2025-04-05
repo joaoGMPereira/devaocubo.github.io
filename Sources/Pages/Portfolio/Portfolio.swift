@@ -9,7 +9,7 @@ struct PortfolioHTML: HTML {
     var portfolio: Profile? {
         decode.callAsFunction("\(language.rawValue).json", as: Profile.self)
     }
-   
+    
     var body: some HTML {
         if let portfolio {
             NavBarView(
@@ -24,10 +24,10 @@ struct PortfolioHTML: HTML {
                 role: portfolio.role,
                 introduction: portfolio.introduction
             )
-            ExperienceView(
+            JobsView(
                 .job,
                 for: language,
-                experiences: portfolio.jobs
+                jobs: portfolio.jobs
             )
             ExperienceView(
                 .education,

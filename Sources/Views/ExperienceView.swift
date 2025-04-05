@@ -45,7 +45,7 @@ struct ExperienceView: HTML {
                 }
                 Row {
                     Column {
-                        Tecnologies(xp.tecnologies)
+                        Tecnologies(xp.technologies)
                             .style(.color, .primary)
                             .margin(.vertical, -10)
                     }
