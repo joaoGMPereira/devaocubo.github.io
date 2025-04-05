@@ -10,7 +10,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    container: swift:latest
+    container: swift:6.0.3
 
     steps:
     - name: Checkout code
