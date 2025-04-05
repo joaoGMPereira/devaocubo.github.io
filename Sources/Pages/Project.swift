@@ -12,7 +12,24 @@ struct ProjectHTML: HTML {
    
     var body: some HTML {
         if let portfolio {
-            NavBarView(name: "/images/devaocubo.png", selectedPage: .init(type: .project, language: language), options: ProjectOption.allCases)
+            NavBarView(
+                name: "/images/devaocubo.png",
+                selectedPage: .init(
+                    type: .project,
+                    language: language
+                ),
+                options: ProjectOption.allCases
+            )
+            LinksView(
+                links: portfolio.links
+            ).margin(.top, 160)
+            
+            BottomBarView(
+                selectedPage: .init(
+                    type: .project,
+                    language: language
+                )
+            )
         }
     }
     

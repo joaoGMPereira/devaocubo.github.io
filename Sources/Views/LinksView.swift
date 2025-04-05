@@ -1,7 +1,7 @@
 import Foundation
 import Ignite
 
-struct FooterView: HTML {
+struct LinksView: HTML {
     let links: [SocialLink]
     
     var body: some HTML {

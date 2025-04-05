@@ -1,8 +1,8 @@
 
 enum ProjectOption: String, CaseIterable, CustomStringConvertible, OptionProtocol {
+    case contact
     case videos
     case code
-    case contact
     
     var idName: String {
         "#\(rawValue)"
