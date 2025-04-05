@@ -15,12 +15,12 @@ struct Experience: Decodable {
 }
 
 struct Job: Decodable {
-    let title, place: String
+    let title: String
     let positions: [JobPosition]
 }
 
 struct JobPosition: Decodable {
-    let role, interval: String
+    let role, `where`, interval: String
     let responsabilities, technologies: [String]
 }
 struct PersonalProject: Decodable {
