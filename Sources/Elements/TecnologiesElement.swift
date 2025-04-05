@@ -4,8 +4,8 @@ import Ignite
 @MainActor
 func Tecnologies(_ tecnologies: [String]) -> some HTML {
     Text {
-        ForEach(tecnologies) { tecnology in
-            Badge(tecnology)
+        ForEach(tecnologies) {
+            Badge($0)
                 .role(.close)
                 .style(.backgroundColor, .accent)
                 .style(.color, .inverse)
