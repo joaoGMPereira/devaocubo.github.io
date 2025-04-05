@@ -21,5 +21,6 @@ struct FooterIgniteView: HTML {
         }
         .horizontalAlignment(.center)
         .fontWeight(.bold)
+        .margin(.bottom, 80)
     }
 }

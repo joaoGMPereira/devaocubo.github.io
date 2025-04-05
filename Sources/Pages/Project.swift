@@ -6,12 +6,12 @@ struct ProjectHTML: HTML {
     
     let language: ProjectLanguage
     
-    var portfolio: Profile? {
-        decode.callAsFunction("\(language.rawValue).json", as: Profile.self)
+    var project: ProjectModel? {
+        decode.callAsFunction("videos.json", as: ProjectModel.self)
     }
    
     var body: some HTML {
-        if let portfolio {
+        if let project {
             NavBarView(
                 name: "/images/devaocubo.png",
                 selectedPage: .init(
@@ -20,10 +20,17 @@ struct ProjectHTML: HTML {
                 ),
                 options: ProjectOption.allCases
             )
+            VideosView(
+                .project,
+                for: language,
+                project: project
+            )
             LinksView(
-                links: portfolio.links
+                links: project.links
             ).margin(.top, 160)
-            
+            FooterIgniteView(
+                footer: project.footer
+            )
             BottomBarView(
                 selectedPage: .init(
                     type: .project,
