@@ -22,7 +22,7 @@ jobs:
         run: pip install python-dotenv isodate requests
 
       - name: Run Python script
-        run: python gerar_videos.py
+        run: python youtubeVideos.py
 
       - name: Commit if videos.json changed
         run: |
