@@ -21,6 +21,11 @@ jobs:
       - name: Install dependencies
         run: pip install python-dotenv isodate requests
 
+      - name: Criar arquivo .env temporário
+        run: |
+          echo "YOUTUBE_API_KEY=${{ secrets.YOUTUBE_API_KEY }}" >> .env
+          echo "YOUTUBE_CHANNEL_ID=${{ secrets.YOUTUBE_CHANNEL_ID }}" >> .env
+
       - name: Run Python script
         run: python youtubeVideos.py
 
