@@ -19,7 +19,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install python-dotenv isodate
+        run: pip install python-dotenv isodate requests
 
       - name: Run Python script
         run: python Scripts/gerar_videos.py
