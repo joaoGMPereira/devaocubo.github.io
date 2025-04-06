@@ -22,6 +22,5 @@ struct ProjectModel: Decodable {
 struct Video: Decodable {
     let videoId: String
     let title: String
-    let url: String
     let publishedAt: String
 }
