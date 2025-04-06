@@ -1,0 +1,45 @@
+name: Update Daily Videos JSON
+
+on:
+  schedule:
+    - cron: '10 14 * * *'  # Executa todo dia às 23h59 UTC (~20h59 BRT)
+  workflow_dispatch:
+
+jobs:
+  generate-videos-and-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install python-dotenv isodate
+
+      - name: Run Python script
+        run: python Scripts/gerar_videos.py
+
+      - name: Commit if videos.json changed
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add Resources/videos.json
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração em videos.json"
+            echo "skip_tag=true" >> $GITHUB_ENV
+          else
+            git commit -m "Update videos.json"
+            git push
+          fi
+
+      - name: Create tag to trigger deploy
+        if: env.skip_tag != 'true'
+        run: |
+          TAG="v$(date -u '+%Y.%m.%d-%H%M')"
+          git tag $TAG
+          git push origin $TAG
