@@ -72,5 +72,5 @@ jobs:
           TAG=${{ steps.version.outputs.next_tag }}
 
           git tag $TAG
-          git push -- tags
+          git push --tags
 
