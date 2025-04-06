@@ -42,12 +42,35 @@ jobs:
             git push
           fi
 
-      - name: Create tag to trigger deploy
+      - name: Get last version and bump patch
+        id: version
+        run: |
+          git fetch --tags
+          LAST_TAG=$(git tag --sort=-v:refname | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n1)
+
+          if [ -z "$LAST_TAG" ]; then
+            echo "No existing tags found, using v0.0.1"
+            echo "next_tag=v0.0.1" >> $GITHUB_OUTPUT
+          else
+            echo "Última tag encontrada: $LAST_TAG"
+            VERSION=$(echo $LAST_TAG | sed 's/v//')
+            MAJOR=$(echo $VERSION | cut -d. -f1)
+            MINOR=$(echo $VERSION | cut -d. -f2)
+            PATCH=$(echo $VERSION | cut -d. -f3)
+            NEW_PATCH=$((PATCH + 1))
+            NEXT_TAG="v$MAJOR.$MINOR.$NEW_PATCH"
+            echo "next_tag=$NEXT_TAG" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create bumped tag
         if: env.skip_tag != 'true'
         run: |
           git fetch origin main
           git checkout main
           git pull
-          TAG="v$(date -u '+%Y.%m.%d-%H%M')"
+
+          TAG=${{ steps.version.outputs.next_tag }}
+
           git tag $TAG
           git push origin $TAG
+
