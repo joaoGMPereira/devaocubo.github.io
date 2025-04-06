@@ -1,4 +1,4 @@
-name: Release Automation
+name: Update Daily Videos JSON and Tag Version
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
           echo "YOUTUBE_CHANNEL_ID=${{ secrets.YOUTUBE_CHANNEL_ID }}" >> .env
 
       - name: Run Python script
-        run: python youtubeVideos.py
+        run: python Scripts/gerar_videos.py
 
       - name: Conditionally commit videos.json (apenas se schedule/workflow_dispatch)
         if: github.event_name != 'push'
