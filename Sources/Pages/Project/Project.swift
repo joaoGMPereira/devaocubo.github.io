@@ -18,17 +18,46 @@ struct ProjectHTML: HTML {
                 ),
                 options: ProjectOption.allCases
             )
-            VideosView(
-                .project,
-                for: language,
-                project: project
-            )
-            BottomBarView(
-                selectedPage: .init(
-                    type: .project,
-                    language: language
+                Link(target: "https://www.youtube.com/@DevAoCubo") {
+                    Card {
+                        VStack(alignment: .center) {
+                            Text {
+                                "Quer assistir a mais vídeos?!"
+                            }
+                            .font(.title3)
+                            .horizontalAlignment(.center)
+                            Spacer(size: 8)
+                            Text{
+                                "Tem muito mais no canal, "
+                                Strong { "Clique aqui!" }
+                            }
+                            .font(.title5)
+                            .horizontalAlignment(.center)
+                            Spacer(size: 8)
+                            Image("/images/devaocubo.png", description: "Logo")
+                                .resizable()
+                                .frame(width: .percent(30%))
+                        }
+                    }
+                    .cardStyle(.solid)
+                    .background(.secondaryColor)
+                    .margin(.horizontal, .percent(5%))
+                    .margin(.bottom, 8)
+                    .margin(.top, 160)
+                }
+            Section("Vídeos Recentes") {
+                VideosView(
+                    .project,
+                    for: language,
+                    project: project
                 )
-            )
+                BottomBarView(
+                    selectedPage: .init(
+                        type: .project,
+                        language: language
+                    )
+                )
+            }
         }
     }
     

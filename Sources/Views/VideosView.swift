@@ -14,7 +14,7 @@ struct VideosView: HTML {
     
     var body: some HTML {
         Accordion {
-            Item("Normais") {
+            Item("Vídeos", startsOpen: true) {
                 Grid(spacing: 2) {
                     ForEach(project.normal) { video in
                         Card {
@@ -39,7 +39,6 @@ struct VideosView: HTML {
             }
         }
         .openMode(.individual)
-        .margin(.top, 160)
         .margin(.bottom, .xLarge)
     }
 }
