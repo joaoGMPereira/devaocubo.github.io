@@ -4,7 +4,6 @@ import os
 from time import sleep
 from isodate import parse_duration
 from dotenv import load_dotenv
-from datetime import datetime
 
 # Carrega variáveis do .env
 load_dotenv()
@@ -34,7 +33,7 @@ def get_all_video_ids(api_key, playlist_id):
         "key": api_key
     }
 
-    while True:
+    while len(video_ids) < 150:  # limite de segurança para não pegar vídeos demais
         response = requests.get(url, params=params)
         response.raise_for_status()
         data = response.json()
@@ -44,7 +43,7 @@ def get_all_video_ids(api_key, playlist_id):
                 "title": item["snippet"]["title"],
                 "publishedAt": item["snippet"]["publishedAt"]
             })
-        if "nextPageToken" in data:
+        if "nextPageToken" in data and len(video_ids) < 150:
             params["pageToken"] = data["nextPageToken"]
         else:
             break
@@ -78,7 +77,7 @@ def classify_videos(api_key, videos_info):
             if is_short(duration):
                 continue  # Ignora shorts
 
-            # Determina o tipo
+            # Define tipo
             if "devaocubo #" in title_lower:
                 video_type = "live"
             elif live_status == "live":
@@ -91,7 +90,6 @@ def classify_videos(api_key, videos_info):
             video_data = {
                 "videoId": vid,
                 "title": title,
-                "url": f"https://youtu.be/{vid}",
                 "publishedAt": publishedAt
             }
 
@@ -99,13 +97,14 @@ def classify_videos(api_key, videos_info):
 
         sleep(1)
 
-    # Ordena cada tipo por data decrescente
-    for key in list(classified.keys()):
-        classified[key].sort(key=lambda v: v["publishedAt"], reverse=True)
-        if not classified[key]:
-            del classified[key]  # remove chave vazia
+    # Ordena e limita a 10 itens por tipo
+    final_result = {}
+    for key in classified:
+        sorted_list = sorted(classified[key], key=lambda v: v["publishedAt"], reverse=True)
+        if sorted_list:
+            final_result[key] = sorted_list[:10]
 
-    return classified
+    return final_result
 
 def is_short(duration):
     try:
@@ -122,7 +121,12 @@ if __name__ == "__main__":
     videos_info = get_all_video_ids(API_KEY, uploads_id)
     classified_videos = classify_videos(API_KEY, videos_info)
 
-    with open("meus_videos_classificados.json", "w", encoding="utf-8") as f:
+    output_dir = "Resources"
+    os.makedirs(output_dir, exist_ok=True)
+
+    output_path = os.path.join(output_dir, "videos.json")
+
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(classified_videos, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ Vídeos classificados por tipo salvos em 'meus_videos_classificados.json'")
+    print(f"✅ Top 10 vídeos por tipo salvos em '{output_path}'")
