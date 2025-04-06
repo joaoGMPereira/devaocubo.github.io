@@ -1,12 +1,11 @@
 import Foundation
 
 struct Profile: Decodable {
-    let name, role, introduction, footer: String
+    let name, role, introduction: String
     let languages: [Language]
     let jobs: [Job]
     let education: [Experience]
     let projects: [PersonalProject]
-    let links: [SocialLink]
 }
 
 struct Experience: Decodable {
@@ -30,8 +29,4 @@ struct PersonalProject: Decodable {
 
 struct Language: Decodable {
     let language, level: String
-}
-
-struct SocialLink: Decodable {
-    let icon, description, link: String
 }

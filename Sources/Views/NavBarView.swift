@@ -27,11 +27,10 @@ struct NavBarView: HTML {
                 }
             }
         }
-        .width(.viewport)
         .navigationItemAlignment(.trailing)
         .navigationBarStyle(.dark)
         .background(.secondaryColor)
-        .position(position)
+        .position(.fixedTop)
     }
     
     private var title: some InlineElement {

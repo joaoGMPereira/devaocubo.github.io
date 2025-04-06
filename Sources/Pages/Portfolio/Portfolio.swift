@@ -39,12 +39,6 @@ struct PortfolioHTML: HTML {
                 for: language,
                 projects: portfolio.projects
             )
-            LinksView(
-                links: portfolio.links
-            )
-            FooterIgniteView(
-                footer: portfolio.footer
-            )
             BottomBarView(
                 selectedPage: .init(
                     type: .portfolio,

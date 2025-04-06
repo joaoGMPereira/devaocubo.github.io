@@ -54,11 +54,10 @@ struct ProjectEn: StaticPage {
     }
 }
 
-
 struct Project: StaticPage {
     let title: String = "João Gabriel"
     
     var body: some HTML {
-        return ProjectHTML()
+        ProjectHTML()
     }
 }
