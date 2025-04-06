@@ -45,6 +45,9 @@ jobs:
       - name: Create tag to trigger deploy
         if: env.skip_tag != 'true'
         run: |
+          git fetch origin main
+          git checkout main
+          git pull
           TAG="v$(date -u '+%Y.%m.%d-%H%M')"
           git tag $TAG
           git push origin $TAG
