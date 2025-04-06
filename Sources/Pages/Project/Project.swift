@@ -6,9 +6,7 @@ struct ProjectHTML: HTML {
     
     let language: ProjectLanguage
     
-    var project: ProjectModel? {
-        decode.callAsFunction("videos.json", as: ProjectModel.self)
-    }
+    var project: ProjectModel?
    
     var body: some HTML {
         if let project {
@@ -36,6 +34,8 @@ struct ProjectHTML: HTML {
     
     init(for language: ProjectLanguage = .portuguese) {
         self.language = language
+        self.project = nil
+        self.project = decode.callAsFunction("videos.json", as: ProjectModel.self)
     }
 }
 
