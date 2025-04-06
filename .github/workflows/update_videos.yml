@@ -2,7 +2,7 @@ name: Update Daily Videos JSON
 
 on:
   schedule:
-    - cron: '10 14 * * *'  # Executa todo dia às 23h59 UTC (~20h59 BRT)
+    - cron: '59 23 * * *'  # Executa todo dia às 23h59 UTC (~20h59 BRT)
   workflow_dispatch:
 
 jobs:
