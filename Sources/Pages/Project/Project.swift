@@ -7,9 +7,12 @@ struct ProjectHTML: HTML {
     let language: ProjectLanguage
     
     var project: ProjectModel?
-   
+    var translate: TranslateProjectModel? {
+        decode.callAsFunction("\(language.rawValue).json", as: TranslateProjectModel.self)
+    }
+    
     var body: some HTML {
-        if let project {
+        if let project, let translate {
             NavBarView(
                 name: "/images/devaocubo.png",
                 selectedPage: .init(
@@ -18,46 +21,35 @@ struct ProjectHTML: HTML {
                 ),
                 options: ProjectOption.allCases
             )
-                Link(target: "https://www.youtube.com/@DevAoCubo") {
-                    Card {
-                        VStack(alignment: .center) {
-                            Text {
-                                "Quer assistir a mais vídeos?!"
-                            }
-                            .font(.title3)
-                            .horizontalAlignment(.center)
-                            Spacer(size: 8)
-                            Text{
-                                "Tem muito mais no canal, "
-                                Strong { "Clique aqui!" }
-                            }
-                            .font(.title5)
-                            .horizontalAlignment(.center)
-                            Spacer(size: 8)
-                            Image("/images/devaocubo.png", description: "Logo")
-                                .resizable()
-                                .frame(width: .percent(30%))
-                        }
-                    }
-                    .cardStyle(.solid)
-                    .background(.secondaryColor)
-                    .margin(.horizontal, .percent(5%))
-                    .margin(.bottom, 8)
-                    .margin(.top, 160)
-                }
-            Section("Vídeos Recentes") {
+            CallToActionView(
+                section: "YouTube",
+                title: translate.callToAction.title,
+                description: translate.callToAction.description,
+                descriptionAction: translate.callToAction.descriptionAction,
+                link: "https://www.youtube.com/@DevAoCubo",
+                language: language
+            )
+            .margin(.top, 160)
+            ComingView(
+                section: translate.code.section,
+                title: translate.code.title,
+                description: translate.code.description,
+                id: ProjectOption.code.rawValue,
+                language: language
+            )
+            Section(translate.videos.title) {
                 VideosView(
-                    .project,
                     for: language,
                     project: project
                 )
-                BottomBarView(
-                    selectedPage: .init(
-                        type: .project,
-                        language: language
-                    )
-                )
             }
+            .id(ProjectOption.videos.rawValue)
+            BottomBarView(
+                selectedPage: .init(
+                    type: .project,
+                    language: language
+                )
+            )
         }
     }
     

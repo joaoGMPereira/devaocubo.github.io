@@ -2,8 +2,8 @@ import Foundation
 import Ignite
 
 enum PortfolioLanguage: String, LanguageProtocol {
-    case english = "English"
-    case portuguese = "Portuguese"
+    case english = "portfolioEnglish"
+    case portuguese = "portfolioPortuguese"
     
     var flag: String {
         switch self {

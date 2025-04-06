@@ -2,6 +2,9 @@ import Foundation
 import Ignite
 
 enum ProjectLanguage: String, LanguageProtocol {
+    case english = "projectEnglish"
+    case portuguese = "projectPortuguese"
+    
     var type: LanguageType {
         switch self {
         case .english:
@@ -10,9 +13,6 @@ enum ProjectLanguage: String, LanguageProtocol {
             .portuguese
         }
     }
-    
-    case english = "English"
-    case portuguese = "Portuguese"
     
     var flag: String {
         switch self {

@@ -35,7 +35,7 @@ struct PortfolioHTML: HTML {
                 experiences: portfolio.education
             )
             ProjectView(
-                .project,
+                ProfileOption.project,
                 for: language,
                 projects: portfolio.projects
             )

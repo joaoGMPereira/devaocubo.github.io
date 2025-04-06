@@ -10,6 +10,7 @@ struct LinksView: HTML {
                 Link(target: link.link) {
                     Image(systemName: link.icon)
                 }
+                .target(.blank)
                 .relationship(.noOpener, .noReferrer)
                 .class("text-decoration-none")
                 .style(.color, .primary)

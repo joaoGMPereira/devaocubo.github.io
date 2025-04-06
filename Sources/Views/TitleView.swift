@@ -2,10 +2,10 @@ import Foundation
 import Ignite
 
 struct TitleView: HTML {
-    let option: ProfileOption
+    let option: OptionProtocol
     let language: PortfolioLanguage
     
-    init(_ option: ProfileOption, language: PortfolioLanguage) {
+    init(_ option: OptionProtocol, language: PortfolioLanguage) {
         self.option = option
         self.language = language
     }

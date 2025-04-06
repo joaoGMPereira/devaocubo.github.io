@@ -1,8 +1,9 @@
 
 enum ProjectOption: String, CaseIterable, CustomStringConvertible, OptionProtocol {
-    case contact
-    case videos
+    case callToAction
     case code
+    case videos
+    case contact
     
     var idName: String {
         "#\(rawValue)"
@@ -10,9 +11,10 @@ enum ProjectOption: String, CaseIterable, CustomStringConvertible, OptionProtoco
     
     var icon: String {
         switch self {
-            case .videos: "📹"
-            case .code: "💻"
-            case .contact: "👥"
+        case .callToAction: "📺"
+        case .videos: "📹"
+        case .code: "💻"
+        case .contact: "👥"
         }
     }
     
@@ -22,12 +24,14 @@ enum ProjectOption: String, CaseIterable, CustomStringConvertible, OptionProtoco
     
     func description(for language: LanguageType) -> String {
         switch (self, language) {
-            case (.videos, .english): "Videos"
-            case (.videos, .portuguese): "Videos"
-            case (.code, .english): "Code"
-            case (.code, .portuguese): "Código"
-            case (.contact, .english): "Medias"
-            case (.contact, .portuguese): "Redes"
+        case (.videos, .english): "Videos"
+        case (.videos, .portuguese): "Vídeos"
+        case (.code, .english): "Code"
+        case (.code, .portuguese): "Código"
+        case (.callToAction, .english): "YouTube"
+        case (.callToAction, .portuguese): "YouTube"
+        case (.contact, .english): "Medias"
+        case (.contact, .portuguese): "Redes"
         }
     }
     
