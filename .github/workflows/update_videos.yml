@@ -39,7 +39,7 @@ jobs:
             echo "skip_tag=true" >> $GITHUB_ENV
           else
             git commit -m "Update videos.json"
-            git push
+            git push origin main
           fi
 
       - name: Get last version and bump patch
@@ -67,7 +67,7 @@ jobs:
         run: |
           git fetch origin main
           git checkout main
-          git pull
+          git pull origin main
 
           TAG=${{ steps.version.outputs.next_tag }}
 
