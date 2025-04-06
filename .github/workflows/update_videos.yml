@@ -46,19 +46,20 @@ jobs:
         id: version
         run: |
           git fetch --tags
-          LAST_TAG=$(git tag --sort=-v:refname | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -n1)
+          LAST_TAG=$(git tag --sort=-v:refname | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9]+)?$' | head -n1)
 
           if [ -z "$LAST_TAG" ]; then
             echo "No existing tags found, using v0.0.1"
-            echo "next_tag=v0.0.1" >> $GITHUB_OUTPUT
+            echo "next_tag=v0.0.1-$(date -u "+%d%m%Y%H%M%S")" >> $GITHUB_OUTPUT
           else
             echo "Última tag encontrada: $LAST_TAG"
-            VERSION=$(echo $LAST_TAG | sed 's/v//')
+            VERSION=$(echo $LAST_TAG | sed 's/^v//' | cut -d- -f1)
             MAJOR=$(echo $VERSION | cut -d. -f1)
             MINOR=$(echo $VERSION | cut -d. -f2)
             PATCH=$(echo $VERSION | cut -d. -f3)
             NEW_PATCH=$((PATCH + 1))
-            NEXT_TAG="v$MAJOR.$MINOR.$NEW_PATCH"
+            TIMESTAMP=$(date -u "+%d%m%Y%H%M%S")
+            NEXT_TAG="v$MAJOR.$MINOR.$NEW_PATCH-$TIMESTAMP"
             echo "next_tag=$NEXT_TAG" >> $GITHUB_OUTPUT
           fi
 
