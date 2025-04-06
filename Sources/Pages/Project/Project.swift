@@ -25,12 +25,6 @@ struct ProjectHTML: HTML {
                 for: language,
                 project: project
             )
-            LinksView(
-                links: project.links
-            ).margin(.top, 160)
-            FooterIgniteView(
-                footer: project.footer
-            )
             BottomBarView(
                 selectedPage: .init(
                     type: .project,
