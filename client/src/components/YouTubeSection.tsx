@@ -1,13 +1,13 @@
 /*
  * DESIGN: Neon Cyber Gradient - YouTube Section
  * - Blue/Purple/Magenta gradient accents
- * - Tab navigation for Videos/Lives
+ * - Tab navigation for Videos/Lives/Shorts
  * - Glass card video thumbnails with colorful glow
  */
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, ExternalLink, Radio } from "lucide-react";
+import { Play, ExternalLink, Radio, Smartphone } from "lucide-react";
 import videosData from "../data/videos.json";
 
 interface Video {
@@ -16,23 +16,25 @@ interface Video {
   publishedAt: string;
 }
 
-function VideoCard({ video }: { video: Video }) {
+function VideoCard({ video, isShort = false }: { video: Video; isShort?: boolean }) {
   const thumbnailUrl = `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`;
-  const videoUrl = `https://www.youtube.com/watch?v/${video.videoId}`;
+  const videoUrl = isShort 
+    ? `https://www.youtube.com/shorts/${video.videoId}`
+    : `https://www.youtube.com/watch?v=${video.videoId}`;
 
   return (
     <motion.a
       href={videoUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block glass-card-hover overflow-hidden"
+      className={`group block glass-card-hover overflow-hidden ${isShort ? 'rounded-2xl' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
       {/* Thumbnail */}
-      <div className="relative aspect-video overflow-hidden">
+      <div className={`relative overflow-hidden ${isShort ? 'aspect-[9/16]' : 'aspect-video'}`}>
         <img
           src={thumbnailUrl}
           alt={video.title}
@@ -45,11 +47,17 @@ function VideoCard({ video }: { video: Video }) {
             <Play size={24} className="text-white ml-1" fill="currentColor" />
           </div>
         </div>
+        {isShort && (
+          <div className="absolute top-3 right-3 px-2 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 flex items-center gap-1">
+            <Smartphone size={12} className="text-white/80" />
+            <span className="text-[10px] font-bold text-white/80 uppercase tracking-wider">Short</span>
+          </div>
+        )}
       </div>
 
       {/* Content */}
       <div className="p-4">
-        <h3 className="font-medium text-white group-hover:text-purple-300 transition-colors line-clamp-2">
+        <h3 className="font-medium text-white group-hover:text-purple-300 transition-colors line-clamp-2 text-sm md:text-base">
           {video.title}
         </h3>
       </div>
@@ -58,8 +66,17 @@ function VideoCard({ video }: { video: Video }) {
 }
 
 export default function YouTubeSection() {
-  const [activeTab, setActiveTab] = useState<"videos" | "lives">("videos");
-  const videos = activeTab === "videos" ? videosData.normal : videosData.live;
+  const [activeTab, setActiveTab] = useState<"videos" | "lives" | "shorts">("videos");
+  
+  const getVideos = () => {
+    switch(activeTab) {
+      case "shorts": return videosData.shorts;
+      case "lives": return videosData.live;
+      default: return videosData.normal;
+    }
+  };
+
+  const videos = getVideos();
 
   return (
     <section id="youtube" className="relative py-20 md:py-32 overflow-hidden">
@@ -86,7 +103,7 @@ export default function YouTubeSection() {
             transition={{ delay: 0.1 }}
             className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-4"
           >
-            Vídeos <span className="gradient-text">Recentes</span>
+            Conteúdo <span className="gradient-text">Recente</span>
           </motion.h2>
           
           <motion.p
@@ -96,8 +113,8 @@ export default function YouTubeSection() {
             transition={{ delay: 0.2 }}
             className="text-white/60 max-w-2xl mx-auto mb-8"
           >
-            Conteúdo sobre desenvolvimento iOS, Swift, SwiftUI e muito mais.
-            Inscreva-se no canal para não perder nenhum vídeo!
+            Desenvolvimento iOS, Swift, SwiftUI e as últimas novidades de tecnologia.
+            Inscreva-se para acompanhar a jornada!
           </motion.p>
 
           {/* CTA */}
@@ -117,11 +134,11 @@ export default function YouTubeSection() {
         </div>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex p-1 rounded-xl bg-white/5 border border-purple-500/20">
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex p-1 rounded-xl bg-white/5 border border-purple-500/20 overflow-x-auto max-w-full">
             <button
               onClick={() => setActiveTab("videos")}
-              className={`flex items-center gap-2 px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+              className={`flex items-center gap-2 px-4 md:px-6 py-2 rounded-lg text-xs md:text-sm font-medium transition-all duration-300 whitespace-nowrap ${
                 activeTab === "videos"
                   ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white glow-purple"
                   : "text-white/70 hover:text-white"
@@ -131,8 +148,19 @@ export default function YouTubeSection() {
               Vídeos
             </button>
             <button
+              onClick={() => setActiveTab("shorts")}
+              className={`flex items-center gap-2 px-4 md:px-6 py-2 rounded-lg text-xs md:text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                activeTab === "shorts"
+                  ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white glow-purple"
+                  : "text-white/70 hover:text-white"
+              }`}
+            >
+              <Smartphone size={16} />
+              Shorts
+            </button>
+            <button
               onClick={() => setActiveTab("lives")}
-              className={`flex items-center gap-2 px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+              className={`flex items-center gap-2 px-4 md:px-6 py-2 rounded-lg text-xs md:text-sm font-medium transition-all duration-300 whitespace-nowrap ${
                 activeTab === "lives"
                   ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white glow-purple"
                   : "text-white/70 hover:text-white"
@@ -152,10 +180,18 @@ export default function YouTubeSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className={`grid gap-6 ${
+              activeTab === "shorts" 
+                ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" 
+                : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            }`}
           >
             {videos.map((video) => (
-              <VideoCard key={video.videoId} video={video} />
+              <VideoCard 
+                key={video.videoId} 
+                video={video} 
+                isShort={activeTab === "shorts"} 
+              />
             ))}
           </motion.div>
         </AnimatePresence>
