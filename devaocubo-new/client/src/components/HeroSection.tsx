@@ -68,10 +68,7 @@ export default function HeroSection() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-base md:text-lg lg:text-xl text-white/70 mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              Criador de conteúdo sobre <span className="text-blue-400">Swift</span>,{" "}
-              <span className="text-purple-400">SwiftUI</span> e{" "}
-              <span className="text-pink-400">Design Systems</span>. Compartilhando
-              conhecimento e ajudando desenvolvedores a evoluir.
+              Desenvolvedor por profissão, criador por natureza. Adoro o desafio de construir coisas novas e sou um grande entusiasta de <span className="text-blue-400">IAs</span>. Para mim, a tecnologia é a ferramenta definitiva para quem gosta de <span className="text-purple-400">criar de tudo um pouco</span>.
             </motion.p>
 
             <motion.div
