@@ -102,5 +102,57 @@
       "title": "Bate Papo com Living Code - DevAoCubo #004",
       "publishedAt": "2025-01-14T11:04:17Z"
     }
+  ],
+  "shorts": [
+    {
+      "videoId": "MQCl8v3e9Rk",
+      "title": "Abrindo cenas e configurando o WaveManager",
+      "publishedAt": "2026-02-03T15:00:43Z"
+    },
+    {
+      "videoId": "LG6lV79olKk",
+      "title": "Erro persistente com Wave Points no Unity",
+      "publishedAt": "2026-02-02T20:00:30Z"
+    },
+    {
+      "videoId": "QMG8dDG9d8U",
+      "title": "Refinando dano dos inimigos para controle nos testes",
+      "publishedAt": "2026-02-01T12:00:43Z"
+    },
+    {
+      "videoId": "nE6TMUpQqt8",
+      "title": "Commit inicial para salvar o estado do projeto",
+      "publishedAt": "2026-01-31T15:01:27Z"
+    },
+    {
+      "videoId": "H78mklxOUYg",
+      "title": "Testando vitória e recuperação completa dos warriors",
+      "publishedAt": "2026-01-31T12:00:35Z"
+    },
+    {
+      "videoId": "doWvexYCaH0",
+      "title": "Criando layers de Player e Enemy no Unity",
+      "publishedAt": "2026-01-30T20:00:30Z"
+    },
+    {
+      "videoId": "kBwPYDmTrBw",
+      "title": "Ajustando HP e dano para testar vitória mais intensa",
+      "publishedAt": "2026-01-30T12:01:20Z"
+    },
+    {
+      "videoId": "pyDwYG9kP_4",
+      "title": "Atribuindo Unit Data nos prefabs do herói",
+      "publishedAt": "2026-01-29T23:01:13Z"
+    },
+    {
+      "videoId": "F33RDHWdzb4",
+      "title": "IA já está pronta para a próxima fase do jogo?",
+      "publishedAt": "2026-01-29T21:00:12Z"
+    },
+    {
+      "videoId": "Kfd9ZLa0AUk",
+      "title": "Finalizando o setup do Hero Unit no Unity",
+      "publishedAt": "2026-01-29T18:00:18Z"
+    }
   ]
 }

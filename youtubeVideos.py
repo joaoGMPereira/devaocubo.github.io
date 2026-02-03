@@ -47,7 +47,7 @@ def get_all_video_ids(youtube, playlist_id):
     return video_ids
 
 def classify_videos(youtube, videos_info):
-    classified = {"normal": [], "live": [], "upcoming": []}
+    classified = {"normal": [], "live": [], "upcoming": [], "shorts": []}
 
     # Processa em lotes de 50 (limite da API)
     for i in range(0, len(videos_info), 50):
@@ -67,8 +67,15 @@ def classify_videos(youtube, videos_info):
             duration = item["contentDetails"]["duration"]
             live_status = item["snippet"].get("liveBroadcastContent", "none")
             title_lower = title.lower()
+            
+            video_data = {
+                "videoId": vid,
+                "title": title,
+                "publishedAt": publishedAt
+            }
 
             if is_short(duration):
+                classified["shorts"].append(video_data)
                 continue
 
             # Classificação
@@ -80,12 +87,6 @@ def classify_videos(youtube, videos_info):
                 video_type = "upcoming"
             else:
                 video_type = "normal"
-
-            video_data = {
-                "videoId": vid,
-                "title": title,
-                "publishedAt": publishedAt
-            }
 
             classified[video_type].append(video_data)
 
