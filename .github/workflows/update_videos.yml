@@ -1,12 +1,9 @@
 name: Release Automation
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
   schedule:
-    - cron: '59 23 * * *'  # todo dia às 23h59 UTC
+    - cron: '0 0 * * *'  # todo dia à meia-noite UTC
 
 jobs:
   generate-videos-and-tag:
