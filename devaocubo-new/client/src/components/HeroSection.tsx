@@ -1,20 +1,11 @@
-/*
- * DESIGN: Neon Cyber Gradient - Hero Section
- * - Blue/Purple/Magenta/Cyan gradient theme
- * - Custom character illustration from user
- * - Glass cards with colorful glow
- * - Animated entrance
- */
-
 import { motion } from "framer-motion";
-import { Youtube, Briefcase, ArrowDown } from "lucide-react";
-import { Link } from "wouter";
+import { Youtube, Rocket, ArrowDown } from "lucide-react";
 
 // User's custom banner as background
 const HERO_BG = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663330671572/mNMHngtIioEBwhsJ.png";
 
 // User's custom character illustration (pointing)
-const CHARACTER = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663330671572/LtGfIWoohunTfUme.png";
+const CHARACTER = "/favicon.png";
 
 export default function HeroSection() {
   const scrollToYoutube = () => {
@@ -100,13 +91,13 @@ export default function HeroSection() {
                 <span>Canal no YouTube</span>
               </a>
               
-              <Link
-                href="/portfolio"
+              <button
+                onClick={() => document.getElementById('projetos')?.scrollIntoView({ behavior: 'smooth' })}
                 className="group flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-purple-500/30 text-white font-semibold hover:bg-purple-500/10 hover:border-purple-500/50 transition-all duration-300"
               >
-                <Briefcase size={20} />
-                <span>Ver Portfólio</span>
-              </Link>
+                <Rocket size={20} />
+                <span>Ver Projetos</span>
+              </button>
             </motion.div>
           </motion.div>
 
@@ -123,7 +114,7 @@ export default function HeroSection() {
               <img
                 src={CHARACTER}
                 alt="Dev ao Cubo Character"
-                className="relative w-full max-w-sm xl:max-w-md drop-shadow-2xl"
+                className="relative w-full max-w-sm xl:max-w-md drop-shadow-2xl rounded-full"
               />
             </div>
           </motion.div>

@@ -1,14 +1,7 @@
-/*
- * DESIGN: Neon Cyber Gradient - Footer
- * - Blue/Purple/Magenta gradient accents
- * - Minimal footer with social links
- * - Glass card styling with colorful glow
- */
-
 import { Github, Linkedin, Youtube, Instagram, Mail, MessageCircle } from "lucide-react";
 
 // User's YouTube profile icon
-const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663330671572/aNqpkkfoXNhqrAXP.png";
+const LOGO_URL = "/favicon.png";
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/jcalderita", label: "LinkedIn", color: "hover:text-blue-400" },
@@ -36,7 +29,7 @@ export default function Footer() {
             <img
               src={LOGO_URL}
               alt="Dev ao Cubo"
-              className="w-20 h-20 rounded-full mb-6 ring-2 ring-purple-500/30 animate-neon-pulse"
+              className="w-20 h-20 rounded-full mb-6 ring-2 ring-purple-500/30"
             />
             
             <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-2">
@@ -63,9 +56,6 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            
-            {/* Divider */}
-            <div className="section-divider mb-6" />
             
             {/* Copyright */}
             <p className="text-white/40 text-sm">

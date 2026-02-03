@@ -1,17 +1,10 @@
-/*
- * DESIGN: Neon Cyber Gradient - Navigation
- * - Blue/Purple/Magenta gradient accents
- * - Floating glass navbar with blur effect
- * - Smooth transitions
- */
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // User's YouTube profile icon
-const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663330671572/aNqpkkfoXNhqrAXP.png";
+const LOGO_URL = "/favicon.png";
 
 interface NavItem {
   label: string;
@@ -21,7 +14,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "YouTube", href: "/#youtube", icon: "📺" },
-  { label: "Portfólio", href: "/portfolio", icon: "💼" },
+  { label: "Projetos", href: "/#projetos", icon: "🚀" },
   { label: "Contato", href: "/#contato", icon: "👥" },
 ];
 
@@ -89,16 +82,6 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              
-              {/* Language Toggle */}
-              <a
-                href="https://www.devaocubo.me/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-2 px-3 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
-              >
-                🇺🇸 EN
-              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -144,14 +127,6 @@ export default function Navbar() {
                     {item.label}
                   </Link>
                 ))}
-                <a
-                  href="https://www.devaocubo.me/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block px-4 py-3 rounded-lg text-base font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
-                >
-                  🇺🇸 English Version
-                </a>
               </div>
             </div>
           </motion.div>
