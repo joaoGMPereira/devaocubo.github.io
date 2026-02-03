@@ -4,7 +4,7 @@ import { Github, Linkedin, Youtube, Instagram, Mail, MessageCircle } from "lucid
 const LOGO_URL = "/favicon.png";
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://www.linkedin.com/in/jcalderita", label: "LinkedIn", color: "hover:text-blue-400" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/joao-gabriel-medeiros-pereira-a7384b8a/", label: "LinkedIn", color: "hover:text-blue-400" },
   { icon: Youtube, href: "https://www.youtube.com/@devaocubo", label: "YouTube", color: "hover:text-red-400" },
   { icon: Github, href: "https://github.com/joaoGMPereira", label: "GitHub", color: "hover:text-purple-400" },
   { icon: Instagram, href: "https://www.instagram.com/dev.ao.cubo", label: "Instagram", color: "hover:text-pink-400" },
@@ -59,7 +59,7 @@ export default function Footer() {
             
             {/* Copyright */}
             <p className="text-white/40 text-sm">
-              © {new Date().getFullYear()} Dev ao Cubo. Criado com React e Tailwind CSS.
+              © {new Date().getFullYear()} Dev ao Cubo.
             </p>
           </div>
         </div>
