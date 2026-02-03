@@ -16,7 +16,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 lg:py-0">
       {/* Background Image - YouTube Banner */}
       <div className="absolute inset-0">
         <img
@@ -32,23 +32,22 @@ export default function HeroSection() {
       {/* Floating orbs for depth */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-pink-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 pt-20">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left order-2 lg:order-1"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 border border-purple-500/30 text-purple-300 text-sm font-medium mb-6"
+              className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 border border-purple-500/30 text-purple-300 text-xs md:text-sm font-medium mb-6"
             >
               📱 Desenvolvedor iOS • +10 anos de experiência
             </motion.div>
@@ -67,7 +66,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-lg md:text-xl text-white/70 mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-base md:text-lg lg:text-xl text-white/70 mb-8 max-w-xl mx-auto lg:mx-0"
             >
               Criador de conteúdo sobre <span className="text-blue-400">Swift</span>,{" "}
               <span className="text-purple-400">SwiftUI</span> e{" "}
@@ -106,15 +105,15 @@ export default function HeroSection() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-            className="hidden lg:flex justify-center items-center"
+            className="flex justify-center items-center order-1 lg:order-2"
           >
-            <div className="relative">
+            <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-full lg:max-w-sm xl:max-w-md">
               {/* Glow effect behind character */}
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 via-purple-500/30 to-pink-500/30 blur-3xl rounded-full scale-75" />
               <img
                 src={CHARACTER}
                 alt="Dev ao Cubo Character"
-                className="relative w-full max-w-sm xl:max-w-md drop-shadow-2xl rounded-full"
+                className="relative w-full h-full object-contain drop-shadow-2xl rounded-full"
               />
             </div>
           </motion.div>
@@ -125,7 +124,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex"
         >
           <button
             onClick={scrollToYoutube}
