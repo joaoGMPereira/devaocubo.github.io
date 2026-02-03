@@ -16,8 +16,11 @@ export default function Home() {
         <YouTubeSection />
         <ProjectsSection />
         
-        {/* Discret Portfolio Link at the bottom */}
-        <section className="py-20 flex justify-center">
+        {/* Contact Section (Footer) */}
+        <Footer />
+
+        {/* Discret Portfolio Link at the very bottom */}
+        <section className="py-20 flex justify-center bg-gradient-to-b from-transparent to-[#0f172a]/50">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -34,8 +37,6 @@ export default function Home() {
             </Link>
           </motion.div>
         </section>
-
-        <Footer />
       </main>
     </div>
   );
