@@ -16,7 +16,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 lg:py-0">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-12 lg:py-0">
       {/* Background Image - YouTube Banner */}
       <div className="absolute inset-0">
         <img
@@ -35,7 +35,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -78,13 +78,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start relative z-20"
             >
               <a
                 href="https://www.youtube.com/@devaocubo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-2 px-6 py-3 rounded-xl btn-gradient text-white font-semibold transition-all duration-300"
+                className="group flex items-center justify-center gap-2 px-6 py-4 rounded-xl btn-gradient text-white font-semibold transition-all duration-300"
               >
                 <Youtube size={20} />
                 <span>Canal no YouTube</span>
@@ -92,7 +92,7 @@ export default function HeroSection() {
               
               <button
                 onClick={() => document.getElementById('projetos')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-purple-500/30 text-white font-semibold hover:bg-purple-500/10 hover:border-purple-500/50 transition-all duration-300"
+                className="group flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white/5 border border-purple-500/30 text-white font-semibold hover:bg-purple-500/10 hover:border-purple-500/50 transition-all duration-300"
               >
                 <Rocket size={20} />
                 <span>Ver Projetos</span>
@@ -107,7 +107,7 @@ export default function HeroSection() {
             transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
             className="flex justify-center items-center order-1 lg:order-2"
           >
-            <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-full lg:max-w-sm xl:max-w-md">
+            <div className="relative w-40 h-40 md:w-64 md:h-64 lg:w-full lg:max-w-sm xl:max-w-md">
               {/* Glow effect behind character */}
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 via-purple-500/30 to-pink-500/30 blur-3xl rounded-full scale-75" />
               <img
@@ -119,12 +119,12 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator - Hidden on mobile to prevent overlap */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex"
         >
           <button
             onClick={scrollToYoutube}
