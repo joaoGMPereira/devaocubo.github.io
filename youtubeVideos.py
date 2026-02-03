@@ -1,72 +1,66 @@
-import requests
 import json
 import os
-from time import sleep
+from googleapiclient.discovery import build
 from isodate import parse_duration
 from dotenv import load_dotenv
 
-# Carrega variáveis do .env
+# Carrega variáveis do .env (para desenvolvimento local)
 load_dotenv()
 
 API_KEY = os.environ.get("YOUTUBE_API_KEY")
 CHANNEL_ID = os.environ.get("YOUTUBE_CHANNEL_ID")
 
-def get_uploads_playlist_id(api_key, channel_id):
-    url = "https://www.googleapis.com/youtube/v3/channels"
-    params = {
-        "part": "contentDetails",
-        "id": channel_id,
-        "key": api_key
-    }
-    response = requests.get(url, params=params)
-    response.raise_for_status()
-    data = response.json()
-    return data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+print(f"DEBUG: API_KEY carregada: '{API_KEY}'")
+print(f"DEBUG: CHANNEL_ID carregado: '{CHANNEL_ID}'")
 
-def get_all_video_ids(api_key, playlist_id):
+def get_service():
+    return build("youtube", "v3", developerKey=API_KEY)
+
+def get_uploads_playlist_id(youtube, channel_id):
+    request = youtube.channels().list(
+        part="contentDetails",
+        id=channel_id
+    )
+    response = request.execute()
+    if not response["items"]:
+        raise Exception("Canal não encontrado")
+    return response["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+
+def get_all_video_ids(youtube, playlist_id):
     video_ids = []
-    url = "https://www.googleapis.com/youtube/v3/playlistItems"
-    params = {
-        "part": "snippet",
-        "playlistId": playlist_id,
-        "maxResults": 50,
-        "key": api_key
-    }
+    request = youtube.playlistItems().list(
+        part="snippet",
+        playlistId=playlist_id,
+        maxResults=50
+    )
 
-    while len(video_ids) < 150:  # limite de segurança para não pegar vídeos demais
-        response = requests.get(url, params=params)
-        response.raise_for_status()
-        data = response.json()
-        for item in data["items"]:
+    while request and len(video_ids) < 150:
+        response = request.execute()
+        for item in response["items"]:
             video_ids.append({
                 "videoId": item["snippet"]["resourceId"]["videoId"],
                 "title": item["snippet"]["title"],
                 "publishedAt": item["snippet"]["publishedAt"]
             })
-        if "nextPageToken" in data and len(video_ids) < 150:
-            params["pageToken"] = data["nextPageToken"]
-        else:
-            break
+        request = youtube.playlistItems().list_next(request, response)
 
     return video_ids
 
-def classify_videos(api_key, videos_info):
-    url = "https://www.googleapis.com/youtube/v3/videos"
+def classify_videos(youtube, videos_info):
     classified = {"normal": [], "live": [], "upcoming": []}
 
+    # Processa em lotes de 50 (limite da API)
     for i in range(0, len(videos_info), 50):
         batch = videos_info[i:i+50]
         ids = ",".join([v["videoId"] for v in batch])
-        params = {
-            "part": "snippet,contentDetails",
-            "id": ids,
-            "key": api_key
-        }
-        response = requests.get(url, params=params)
-        response.raise_for_status()
-        data = response.json()
+        
+        request = youtube.videos().list(
+            part="snippet,contentDetails",
+            id=ids
+        )
+        response = request.execute()
 
-        for item in data["items"]:
+        for item in response["items"]:
             vid = item["id"]
             title = item["snippet"]["title"]
             publishedAt = item["snippet"]["publishedAt"]
@@ -75,9 +69,9 @@ def classify_videos(api_key, videos_info):
             title_lower = title.lower()
 
             if is_short(duration):
-                continue  # Ignora shorts
+                continue
 
-            # Define tipo
+            # Classificação
             if "devaocubo #" in title_lower:
                 video_type = "live"
             elif live_status == "live":
@@ -95,9 +89,7 @@ def classify_videos(api_key, videos_info):
 
             classified[video_type].append(video_data)
 
-        sleep(1)
-
-    # Ordena e limita a 10 itens por tipo
+    # Ordena e limita
     final_result = {}
     for key in classified:
         sorted_list = sorted(classified[key], key=lambda v: v["publishedAt"], reverse=True)
@@ -114,19 +106,24 @@ def is_short(duration):
 
 if __name__ == "__main__":
     if not API_KEY or not CHANNEL_ID:
-        print("❌ API_KEY ou CHANNEL_ID não configurados nas variáveis de ambiente.")
+        print("❌ API_KEY ou CHANNEL_ID não configurados.")
         exit(1)
 
-    uploads_id = get_uploads_playlist_id(API_KEY, CHANNEL_ID)
-    videos_info = get_all_video_ids(API_KEY, uploads_id)
-    classified_videos = classify_videos(API_KEY, videos_info)
+    try:
+        youtube = get_service()
+        uploads_id = get_uploads_playlist_id(youtube, CHANNEL_ID)
+        videos_info = get_all_video_ids(youtube, uploads_id)
+        classified_videos = classify_videos(youtube, videos_info)
 
-    output_dir = "Resources"
-    os.makedirs(output_dir, exist_ok=True)
+        output_dir = "client/src/data"
+        os.makedirs(output_dir, exist_ok=True)
+        output_path = os.path.join(output_dir, "videos.json")
 
-    output_path = os.path.join(output_dir, "videos.json")
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(classified_videos, f, ensure_ascii=False, indent=2)
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(classified_videos, f, ensure_ascii=False, indent=2)
-
-    print(f"✅ Top 10 vídeos por tipo salvos em '{output_path}'")
+        print(f"✅ Vídeos atualizados com sucesso em '{output_path}'")
+        
+    except Exception as e:
+        print(f"❌ Erro durante a execução: {e}")
+        exit(1)

@@ -1,6 +1,46 @@
 {
   "normal": [
     {
+      "videoId": "TCm-uapFuJ4",
+      "title": "Agents de IA SALVARAM a RUMO do NOSSO Projeto!",
+      "publishedAt": "2026-01-31T15:01:02Z"
+    },
+    {
+      "videoId": "HYh1gF9YHMk",
+      "title": "Agents de IA QUASE DESTRUÍRAM Nosso Projeto! Configurando Skills na Prática!!!",
+      "publishedAt": "2026-01-30T15:00:37Z"
+    },
+    {
+      "videoId": "tF9lYWOm_-o",
+      "title": "Testei Easy, Medium e Hard com IA — o balanceamento ficou jogável?",
+      "publishedAt": "2026-01-29T15:01:38Z"
+    },
+    {
+      "videoId": "3WnhG659Y4U",
+      "title": "Acelerei o jogo com IA e quase quebrei tudo — ainda está jogável?",
+      "publishedAt": "2026-01-28T15:00:05Z"
+    },
+    {
+      "videoId": "FAAYnSdHBcw",
+      "title": "IA criou o sistema de Game Over e Vitória — agora o jogo funciona?",
+      "publishedAt": "2026-01-27T22:00:25Z"
+    },
+    {
+      "videoId": "Fma8GB2ZPAo",
+      "title": "Warriors vs Goblins: IA conseguiu criar um combate realmente jogável?",
+      "publishedAt": "2026-01-27T18:12:05Z"
+    },
+    {
+      "videoId": "9vwMvPSyAW0",
+      "title": "CLAUDE Tentando FINALIZAR um JOGO 2D na UNITY do ZERO! (jogável?) - Parte 2",
+      "publishedAt": "2026-01-22T15:00:13Z"
+    },
+    {
+      "videoId": "Z5eh2uUEXAw",
+      "title": "Dei 1 HORA pro CLAUDE Criar um JOGO 2D na UNITY do ZERO! (jogável?) - Parte 1",
+      "publishedAt": "2026-01-21T15:00:06Z"
+    },
+    {
       "videoId": "c7RjRXnzVfA",
       "title": "Como CONSEGUI criar um SITE usando SWIFT?!",
       "publishedAt": "2025-03-29T20:00:16Z"
@@ -9,46 +49,6 @@
       "videoId": "sr0yRZmWcyc",
       "title": "Criando NOVOS COMPONENTS: Qual o PROCESSO?",
       "publishedAt": "2025-03-27T20:00:36Z"
-    },
-    {
-      "videoId": "R4srlI8f-LI",
-      "title": "Criando NOVOS Base ELEMENTS: Qual o PROCESSO?",
-      "publishedAt": "2025-03-25T19:30:03Z"
-    },
-    {
-      "videoId": "exP-hAro9FU",
-      "title": "DEVS REALITY: API quebrada, erro misterioso e o login inútil, SERÁ que alguém entrega?-React CodeCon",
-      "publishedAt": "2025-03-24T14:30:21Z"
-    },
-    {
-      "videoId": "oWe4TjBXqvk",
-      "title": "Automatize Tudo! 🛠️ Criando um Script para Gerar Componentes Dinamicamente 🚀",
-      "publishedAt": "2025-03-17T19:00:40Z"
-    },
-    {
-      "videoId": "wkyhhP3-Q-4",
-      "title": "🚀 Criando Custom Components no SwiftUI: Como Funciona? 🎨",
-      "publishedAt": "2025-03-13T19:00:48Z"
-    },
-    {
-      "videoId": "ik25jU0kXfI",
-      "title": "🌍 Entenda O que seriam os Componentes Nativos no SwiftUI e Como Personalizá-los! 🚀",
-      "publishedAt": "2025-03-12T19:00:35Z"
-    },
-    {
-      "videoId": "ElT7uuMM_i4",
-      "title": "Hacker Explora Tinder para Ganhar Mais Match? - React Mano Deyvin",
-      "publishedAt": "2025-03-11T19:00:13Z"
-    },
-    {
-      "videoId": "Y7xNpAnfJL4",
-      "title": "🔥 Nova Estrutura do Sample: Mais Organizado e Eficiente! 🚀",
-      "publishedAt": "2025-03-10T18:00:30Z"
-    },
-    {
-      "videoId": "dEjdAbbo9OY",
-      "title": "CPF, renda e até selfies vazadas! O escândalo de segurança da Fintech BR -  React Mano Deyvin",
-      "publishedAt": "2025-03-09T07:00:22Z"
     }
   ],
   "live": [

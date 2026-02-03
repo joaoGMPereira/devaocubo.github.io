@@ -22,7 +22,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install python-dotenv isodate requests
+        run: pip install python-dotenv isodate google-api-python-client google-auth-httplib2
 
       - name: Criar .env com secrets
         run: |
@@ -32,12 +32,11 @@ jobs:
       - name: Run Python script
         run: python youtubeVideos.py
 
-      - name: Conditionally commit videos.json (apenas se schedule/workflow_dispatch)
-        if: github.event_name != 'push'
+      - name: Commit and push videos.json if changed
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add Resources/videos.json
+          git add client/src/data/videos.json
           if git diff --cached --quiet; then
             echo "Nenhuma alteração em videos.json"
             echo "skip_tag=true" >> $GITHUB_ENV

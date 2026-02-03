@@ -8,6 +8,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, ExternalLink, Radio } from "lucide-react";
+import videosData from "../data/videos.json";
 
 interface Video {
   videoId: string;
@@ -15,27 +16,9 @@ interface Video {
   publishedAt: string;
 }
 
-const normalVideos: Video[] = [
-  { videoId: "c7RjRXnzVfA", title: "Como CONSEGUI criar um SITE usando SWIFT?!", publishedAt: "2025-03-29" },
-  { videoId: "sr0yRZmWcyc", title: "Criando NOVOS COMPONENTS: Qual o PROCESSO?", publishedAt: "2025-03-27" },
-  { videoId: "R4srlI8f-LI", title: "Criando NOVOS Base ELEMENTS: Qual o PROCESSO?", publishedAt: "2025-03-25" },
-  { videoId: "exP-hAro9FU", title: "DEVS REALITY: API quebrada, erro misterioso e o login inútil", publishedAt: "2025-03-24" },
-  { videoId: "oWe4TjBXqvk", title: "Automatize Tudo! Criando um Script para Gerar Componentes", publishedAt: "2025-03-17" },
-  { videoId: "wkyhhP3-Q-4", title: "Criando Custom Components no SwiftUI: Como Funciona?", publishedAt: "2025-03-13" },
-];
-
-const liveVideos: Video[] = [
-  { videoId: "_sMcATDK6Ts", title: "Bate Papo com Living Code - DevAoCubo #012", publishedAt: "2025-03-18" },
-  { videoId: "m8EsNVCngQc", title: "Bate Papo com Living Code - DevAoCubo #011", publishedAt: "2025-03-08" },
-  { videoId: "tve4sabpCI0", title: "Bate Papo com Living Code - DevAoCubo #010", publishedAt: "2025-02-25" },
-  { videoId: "4kfkltcojAI", title: "DESIGN SYSTEM SWIFTUI(ZENITH) - MÓDULO 1", publishedAt: "2025-02-19" },
-  { videoId: "Egb-fM9-Ru0", title: "DESIGN SYSTEM SWIFTUI(ZENITH) - MÓDULO 0", publishedAt: "2025-02-13" },
-  { videoId: "Xqbq1Krg-5s", title: "DESIGN SYSTEM SWIFTUI(ZENITH) - O INÍCIO", publishedAt: "2025-02-04" },
-];
-
 function VideoCard({ video }: { video: Video }) {
   const thumbnailUrl = `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`;
-  const videoUrl = `https://www.youtube.com/watch?v=${video.videoId}`;
+  const videoUrl = `https://www.youtube.com/watch?v/${video.videoId}`;
 
   return (
     <motion.a
@@ -76,7 +59,7 @@ function VideoCard({ video }: { video: Video }) {
 
 export default function YouTubeSection() {
   const [activeTab, setActiveTab] = useState<"videos" | "lives">("videos");
-  const videos = activeTab === "videos" ? normalVideos : liveVideos;
+  const videos = activeTab === "videos" ? videosData.normal : videosData.live;
 
   return (
     <section id="youtube" className="relative py-20 md:py-32 overflow-hidden">
