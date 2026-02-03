@@ -58,7 +58,7 @@
 :root {
   --radius: 0.75rem;
   /* Deep blue/purple dark background */
-  --background: oklch(0.12 0.03 270);
+  --background: #0f172a;
   --foreground: oklch(0.95 0 0);
   --card: oklch(1 0 0 / 5%);
   --card-foreground: oklch(0.95 0 0);
@@ -99,23 +99,32 @@
   * {
     @apply border-border outline-ring/50;
   }
-  html, body {
-    @apply bg-background text-foreground antialiased;
+  
+  /* Force background on all root elements */
+  html, body, #root {
+    background-color: #0f172a !important;
+    color: oklch(0.95 0 0);
     font-family: var(--font-body);
-    /* Fixed background to prevent white space on scroll */
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    /* Fixed background gradient that covers everything */
     background: linear-gradient(135deg, 
       #0f172a 0%, 
       #1e1b4b 25%, 
       #312e81 50%, 
       #1e3a5f 75%, 
       #0f172a 100%
-    ) fixed;
-    background-size: 400% 400%;
+    ) fixed !important;
+    background-size: 400% 400% !important;
     animation: gradientShift 20s ease infinite;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
   }
@@ -138,4 +147,16 @@
 
 .gradient-text {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-blue via-neon-purple to-neon-magenta;
+}
+
+.btn-gradient {
+  @apply bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-500 hover:via-purple-500 hover:to-pink-500 shadow-lg shadow-purple-500/20;
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
 }
