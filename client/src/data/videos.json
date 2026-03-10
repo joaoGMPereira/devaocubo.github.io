@@ -1,6 +1,11 @@
 {
   "normal": [
     {
+      "videoId": "DrTVogKzcxA",
+      "title": "As Sprites das Skills SUMIRAM do Jogo?! Debugando o Problema",
+      "publishedAt": "2026-03-09T20:00:23Z"
+    },
+    {
       "videoId": "L6wcQ_Cn3nE",
       "title": "Refatorando o Projeto Inteiro pra ARPG - Mudando a Rota Antes que Seja Tarde",
       "publishedAt": "2026-03-06T20:00:30Z"
@@ -44,11 +49,6 @@
       "videoId": "9vwMvPSyAW0",
       "title": "CLAUDE Tentando FINALIZAR um JOGO 2D na UNITY do ZERO! (jogável?) - Parte 2",
       "publishedAt": "2026-01-22T15:00:13Z"
-    },
-    {
-      "videoId": "Z5eh2uUEXAw",
-      "title": "Dei 1 HORA pro CLAUDE Criar um JOGO 2D na UNITY do ZERO! (jogável?) - Parte 1",
-      "publishedAt": "2026-01-21T15:00:06Z"
     }
   ],
   "live": [
